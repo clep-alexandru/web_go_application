@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: go-web-server
-        image: ghcr.io/${{ github.repository }}:latest
+        image: ghcr.io/clep-alexandru/web_go_application:latest 
         envFrom:
         - configMapRef:
             name: go-web-server-config
