@@ -11,7 +11,7 @@ COPY . .
 
 RUN go build -o main ./app/main.go
 
-FROM alpine:latest
+FROM debian:bullseye-slim
 
 WORKDIR /app
 
