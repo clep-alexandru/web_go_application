@@ -1,0 +1,23 @@
+version: '3.8'
+
+networks:
+  app_network:
+    driver: bridge
+
+services:
+  db:
+    image: postgres:16
+    container_name: bazaDateWeb
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: bazaDateWebApp
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - app_network
+
+volumes:
+  pgdata:

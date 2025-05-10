@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagină de autentificare</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            outline: navy;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: #5dade2;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #5dade2;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+
+        .login-button:hover {
+            background-color: #3498db;
+            box-shadow: 0 0 15px #5dade2, 0 0 40px #5dade2;
+        }
+
+        .login-button:active {
+            transform: scale(0.98);
+        }
+
+        .footer-text {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .footer-text a {
+            color: #5dade2;
+            text-decoration: none;
+        }
+
+        @media (max-width: 500px) {
+            .login-container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Bine ai venit!</h2>
+
+        <form method="POST" action="/login">
+            <div class="form-group">
+                <label for="username">Utilizator</label>
+                <input type="text" id="username" name="username" placeholder="Introdu numele de utilizator" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Parolă</label>
+                <input type="password" id="password" name="password" placeholder="Introdu parola" required>
+            </div>
+            <button type="submit" class="login-button">Autentificare</button>
+        </form>
+
+        <div class="footer-text">
+            Nu ai un cont? <a href="/signup">Înregistrează-te!</a>
+        </div>
+    </div>
+
+</body>
+</html>

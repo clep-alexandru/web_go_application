@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Înregistrare</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #FFDEE9, #B5FFFC);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .signup-container {
+      background: #ffffff;
+      padding: 45px 35px;
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 420px;
+
+      opacity: 0;
+      transform: translateY(-60px);
+      animation: fadeDown 0.9s ease-out forwards;
+    }
+
+    @keyframes fadeDown {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .signup-container h2 {
+      text-align: center;
+      margin-bottom: 35px;
+      color: #444;
+    }
+
+    .form-group {
+      margin-bottom: 22px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input:focus {
+      border-color: #ff8fab;
+    }
+
+    .signup-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #ff8fab;
+      border: none;
+      border-radius: 12px;
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: background-color 0.3s, transform 0.1s, box-shadow 0.3s;
+    }
+
+    .signup-btn:hover {
+      background-color: #f06292;
+      box-shadow: 0 0 15px #f48fb1, 0 0 40px #f8bbd0;
+    }
+
+    .signup-btn:active {
+      transform: scale(0.97);
+    }
+
+    .footer-text {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .footer-text a {
+      color: #ff8fab;
+      text-decoration: none;
+    }
+
+    @media (max-width: 500px) {
+      .signup-container {
+        padding: 35px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+    <div class="signup-container">
+        <h2>Crează un cont</h2>
+    
+        <form method="POST" action="/signup">
+          <div class="form-group">
+            <label for="username">Utilizator</label>
+            <input type="text" id="username" name="username" placeholder="Alege un nume de utilizator" required>
+          </div>
+          <div class="form-group">
+            <label for="parola">Parolă</label>
+            <input type="password" id="parola" name="parola" placeholder="Alege o parolă" required>
+          </div>
+    
+    
+          <button type="submit" class="signup-btn">Înregistrare</button>
+        </form>
+    
+        <div class="footer-text">
+          Ai deja un cont? <a href="/login">Conectează-te</a>
+        </div>
+      </div>
+    
+    </body>
+    </html>

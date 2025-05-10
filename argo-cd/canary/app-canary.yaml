@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: go-web-server-canary
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/clep-alexandru/web_go_application.git'
+    targetRevision: main
+    path: manifests/canary/
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: canary-deployment
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
