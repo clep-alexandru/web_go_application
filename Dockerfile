@@ -1,23 +1,13 @@
-FROM golang:1.24.2 AS builder
-
-WORKDIR /app
-
-COPY go.mod .
-COPY go.sum .
-
+FROM golang:1.24.2 AS builder         
+WORKDIR /src
+COPY go.mod go.sum ./
 RUN go mod download
-
 COPY . .
+RUN go build -o main ./app
 
-RUN go build -o main ./app/main.go
-
-FROM debian:bullseye-slim
-
+FROM debian:bookworm-slim            
 WORKDIR /app
-
-COPY --from=builder /app/main .
-COPY --from=builder /app/app/templates ./templates
-
+COPY --from=builder /src/main /app/
+COPY --from=builder /src/app/templates /app/templates
 EXPOSE 8080
-
-CMD ["./main"]
+ENTRYPOINT ["/app/main"]
