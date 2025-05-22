@@ -17,7 +17,8 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Log in to GitHub Container Registry
-        run: echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u clep-alexandru --password-stdin
+        run: |
+          echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u clep-alexandru --password-stdin
 
       - name: Build Docker Image
         run: |
