@@ -29,5 +29,5 @@ spec:
             name: go-web-server-config
         ports:
         - containerPort: 8080
-        imagePullSecrets:
+      imagePullSecrets:
         - name: ghcr-secret
