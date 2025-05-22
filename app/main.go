@@ -38,8 +38,8 @@ func main() {
 	var err error
 	db, err = sql.Open("postgres", connStr)
 	if err != nil {
-		log.Fatal("Eroare la conectarea la baza de date:", err)
-	}
+		log.Fatal("Eroare la conectarea la baza de date", err)
+	
 	defer db.Close()
 
 	http.HandleFunc("/login", PaginaLogareHandler)
