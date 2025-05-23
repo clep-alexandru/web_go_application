@@ -22,8 +22,8 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t ghcr.io/clep-alexandru/web_go_application:latest .
+          docker build -t ghcr.io/clep-alexandru/web_go_application:1 .
 
       - name: Push Docker Image
         run: |
-          docker push ghcr.io/clep-alexandru/web_go_application:latest
+          docker push ghcr.io/clep-alexandru/web_go_application:1
