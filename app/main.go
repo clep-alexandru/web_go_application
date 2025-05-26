@@ -98,7 +98,7 @@ func PaginaLogareHandler(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			fmt.Fprintln(w, "Parola incorecta")
 			return
-		}2
+		}
 
 		http.Redirect(w, r, "/welcome", http.StatusSeeOther)
 		return
