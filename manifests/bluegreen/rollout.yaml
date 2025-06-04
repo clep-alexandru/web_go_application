@@ -20,12 +20,12 @@ spec:
         app: go-web-server
     spec:
       containers:
-      - name: go-web-server
-        image: ghcr.io/clep-alexandru/web_go_application:${{ github.sha }}
-        envForm:
-        - configMaRef:
-          name : go-web-server-config
-        ports:
-        - containerPort: 8080
+        - name: go-web-server
+          image: ghcr.io/clep-alexandru/web_go_application:ee50867ddf6ac1f16636d17bf79fa83aeddf2021
+          envForm:
+            - configMaRef:
+              name: go-web-server-config
+          ports:
+            - containerPort: 8080
       imagePullSecrets:
         - name: ghcr-secret
