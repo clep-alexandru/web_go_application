@@ -5,7 +5,7 @@ metadata:
   namespace: bluegreen
 spec:
   selector:
-    app: rollout-bluegreen
+    app: go-web-server
   ports:
   - name: http
     port: 80
