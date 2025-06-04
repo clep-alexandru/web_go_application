@@ -6,7 +6,7 @@ metadata:
 spec:
   replicas: 2
   strategy:
-    blueGreen:  
+    blueGreen:
       activeService: go-web-server-active
       previewService: go-web-server-preview
       autoPromotionEnabled: false
@@ -20,12 +20,12 @@ spec:
         app: go-web-server
     spec:
       containers:
-      - name: go-web-server
-        image: ghcr.io/clep-alexandru/web_go_application:${{ github.sha }}
-        envFrom:  
-        - configMapRef: 
-            name: go-web-server-config
-        ports:
-        - containerPort: 8080
+        - name: go-web-server
+          image: ghcr.io/clep-alexandru/web_go_application:ca3966b3368d456ae474e5b8f52535fd904ffa76
+          envFrom:
+            - configMapRef:
+                name: go-web-server-config
+          ports:
+            - containerPort: 8080
       imagePullSecrets:
-      - name: ghcr-secret
+        - name: ghcr-secret
