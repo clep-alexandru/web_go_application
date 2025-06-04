@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: go-web-server-bluegreen
+  namespace: bluegreen
+spec:
+  replicas: 2
+  strategy:
+    bluegreen:
+      activeService: go-web-server-active
+      previewService: go-web-server-preview
+      autoPromotionEnabled: false
+      autoPromotionSeconds: 30
+  selector:
+    matchLabels:
+      app: go-web-server
+  template:
+    metadata:
+      labels:
+        app: go-web-server
+    spec:
+      containers:
+      - name: go-web-server
+        image: ghcr.io/clep-alexandru/web_go_application:${{ github.sha }}
+        envForm:
+        - configMaRef:
+          name : go-web-server-config
+        ports
+        - containerPort: 8080
+      imagePullSecrets:
+        - name: ghcr-secret

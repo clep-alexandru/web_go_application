@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: go-web-server-active
+  namespace: bluegreen
+spec:
+  selector:
+    app: rollout-bluegreen
+  ports:
+  - name: http
+    port: 80
+    targetPort: 8080
