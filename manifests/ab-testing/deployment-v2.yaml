@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-web-server-v2
+  namespace: ab-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: go-web-server
+      version: v2
+  template:
+    metadata:
+      labels:
+        app: go-web-server
+        version: v2
+    spec:
+      containers:
+      - name: go-web-server
+        image: ghcr.io/clep-alexandru/web_go_application:2
+        envFrom:
+        - configMapRef:
+            name: go-web-server-config
+        ports:
+        - containerPort: 8080

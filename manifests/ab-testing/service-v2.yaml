@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: go-web-server-v2
+  namespace: ab-deployment
+spec:
+  selector:
+    app: go-web-server
+    version: v2
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: ClusterIP

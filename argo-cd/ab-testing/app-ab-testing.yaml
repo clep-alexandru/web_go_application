@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ab-testing
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/clep-alexandru/web_go_application.git'
+    targetRevision: HEAD
+    path: manifests/ab-testing
+  destination:
+    server: 'https://kubernetes.default.svc/'
+    namespace: ab-deployment
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      CreateNamespace=true
+
+      

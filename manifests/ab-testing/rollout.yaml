@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: go-web-server-canary
+  namespace: ab-deployment
+spec:
+  replicas: 2
+  strategy:
+    canary:
+      steps:
+      - setWeight: 20
+      - pause: { duration: 30s }
+      - setWeight: 50
+      - pause: { duration: 60s }
+      - setWeight: 100
+  selector:
+    matchLabels:
+      app: go-web-server
+  template:
+    metadata:
+      labels:
+        app: go-web-server
+    spec:
+      containers:
+      - name: go-web-server
+        image: ghcr.io/clep-alexandru/web_go_application:2
+        envFrom:
+        - configMapRef:
+            name: go-web-server-config
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+        - name: ghcr-secret
