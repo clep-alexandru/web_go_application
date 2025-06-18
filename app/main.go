@@ -100,7 +100,7 @@ func PaginaLogareHandler(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		http.Redirect(w, r, "/welcome", http.StatusSeeOther)
+		http.Redirect(w, r, "/welcome_2", http.StatusSeeOther)
 		return
 	}
 
