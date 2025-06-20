@@ -4,6 +4,7 @@ metadata:
   name: go-web-server-ingress
   namespace: ab-deployment
 spec:
+  ingressClassName: nginx
   rules:
     - host: abtest.local
       http:

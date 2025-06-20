@@ -7,6 +7,7 @@ metadata:
     nginx.ingress.kubernetes.io/canary: "true"
     nginx.ingress.kubernetes.io/canary-weight: "50"
 spec:
+  ingressClassName: nginx
   rules:
     - host: abtest.local
       http:
