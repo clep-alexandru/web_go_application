@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: go-web-server
-          image: ghcr.io/clep-alexandru/web_go_application:2b534e750acf376c259ffe4db13178837cc8f684
+          image: ghcr.io/clep-alexandru/web_go_application:ee9e74a475549f962779c509f8d2f45d73fb6931
           envFrom:
             - configMapRef:
                 name: go-web-server-config
