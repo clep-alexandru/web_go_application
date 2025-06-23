@@ -5,12 +5,14 @@ metadata:
   namespace: bluegreen
 spec:
   replicas: 2
+  revisionHistoryLimit: 1  
   strategy:
     blueGreen:
       activeService: go-web-server-active
       previewService: go-web-server-preview
       autoPromotionEnabled: false
       autoPromotionSeconds: 30
+      scaleDownDelaySeconds: 0  
   selector:
     matchLabels:
       app: go-web-server
