@@ -5,14 +5,14 @@ metadata:
   namespace: bluegreen
 spec:
   replicas: 2
-  revisionHistoryLimit: 1  
+  revisionHistoryLimit: 1
   strategy:
     blueGreen:
       activeService: go-web-server-active
       previewService: go-web-server-preview
       autoPromotionEnabled: false
       autoPromotionSeconds: 30
-      scaleDownDelaySeconds: 0  
+      scaleDownDelaySeconds: 0
   selector:
     matchLabels:
       app: go-web-server
@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: go-web-server
-          image: ghcr.io/clep-alexandru/web_go_application:bae5d51c2ca2b549fe6c683f7d36af0e15a52ffa
+          image: ghcr.io/clep-alexandru/web_go_application:ea73b9f207afca0afa9c9eb672c36087319469ef
           envFrom:
             - configMapRef:
                 name: go-web-server-config
