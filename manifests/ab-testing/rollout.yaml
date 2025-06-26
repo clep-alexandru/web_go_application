@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: go-web-server-canary
-  namespace: canary-deployment
+  namespace: ab-deployment
 spec:
   replicas: 2
   strategy:
