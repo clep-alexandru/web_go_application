@@ -60,7 +60,7 @@ jobs:
       - name: Update both rollouts with new image tag
         run: |
           yq -i '.spec.template.spec.containers[0].image = "ghcr.io/clep-alexandru/web_go_application:${{ github.sha }}"' manifests/bluegreen/rollout.yaml
-          yq -i '.spec.template.spec.containers[0].image = "ghcr.io/clep-alexandru/web_go_application:${{ github.sha }}"' manifests/ab-testing/rollout.yaml
+          yq -i '.spec.template.spec.containers[0].image = "ghcr.io/clep-alexandru/web_go_application:${{ github.sha }}"' manifests/ab-testing/deployment-v2.yaml
           yq -i '.spec.template.spec.containers[0].image = "ghcr.io/clep-alexandru/web_go_application:${{ github.sha }}"' manifests/canary/rollout.yaml
           git config user.name "ci-bot"
           git config user.email "ci@github"

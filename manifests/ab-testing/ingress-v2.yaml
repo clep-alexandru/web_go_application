@@ -2,8 +2,9 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: go-web-server-ingress-canary
-  namespace: ab-deployment
+  namespace: ab-testing
   annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/canary: "true"
     nginx.ingress.kubernetes.io/canary-weight: "50"
 spec:
