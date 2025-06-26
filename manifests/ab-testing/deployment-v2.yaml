@@ -16,10 +16,10 @@ spec:
         version: v2
     spec:
       containers:
-      - name: go-web-server
-        image: ghcr.io/clep-alexandru/web_go_application:2
-        envFrom:
-        - configMapRef:
-            name: go-web-server-config
-        ports:
-        - containerPort: 8080
+        - name: go-web-server
+          image: ghcr.io/clep-alexandru/web_go_application:fce16197c0b47cfe586e15fb276ab66557e5f4a8
+          envFrom:
+            - configMapRef:
+                name: go-web-server-config
+          ports:
+            - containerPort: 8080
